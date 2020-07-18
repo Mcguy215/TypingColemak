@@ -143,12 +143,15 @@ for round_ in range(rounds):
 print("==Analysis==")
 print(f"- Accuracy {round(correct / (correct + wrong)*100, 2)}%")
 
-print(f"- Round{'s' if round_ != 1 else ''}: {round_}")
-print("- Frequency of keys missed \n")
-for k, v in missed_keys.most_common(len(missed_keys)):
-    if k == 1:
-        print(f"Mistyped: '{k}', {v} time.")
-    else:
-        print(f"Mistyped: '{k}', {v} times.")
-
+print(f"- Round{'s' if round_ != 1 else ''}: {round_ + 1}")
+      
+if len(missed_keys) == 0:
+  print("- You made no errors! Great job!")
+else:
+  print("- Frequency of keys missed \n")
+  for k, v in missed_keys.most_common(len(missed_keys)):
+      if k == 1:
+          print(f"Mistyped: '{k}', {v} time.")
+      else:
+          print(f"Mistyped: '{k}', {v} times.")    
 input()
